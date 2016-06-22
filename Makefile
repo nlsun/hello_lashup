@@ -1,9 +1,11 @@
-APP_NAME = hello_lashup
+all: run
 
-all: build run
+# Compile and Run
+run:
+	./rebar3 ct --readable=false
 
-build:
+compile:
 	./rebar3 compile
 
-run: 
-	erl -env ERL_LIBS _build/default/lib -eval "application:ensure_all_started(${APP_NAME})." -noshell
+clean:
+	./rebar3 clean
